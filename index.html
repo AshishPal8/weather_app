@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="logo-div">
+            <img src="img/sunny.png" alt="" class="logo">
+            <h1>Weather</h1>
+        </div>
+        <div class="form-group">
+            <input id="city-input" class="form-control form-control-lg" type="text" placeholder="Search city">
+            <button type="button" onclick="searchCity()" class="btn btn-lg btn-dark">Search</button>
+        </div>
+        <div id="current-time">00:00</div>
+    </nav>
+    <div class="main">
+        <div class="temp-other">
+            <div class="temp">
+                <div>
+                    <h2 id="city-name">City</h2>
+                    <h1 id="weather-type" class="card-title">----</h1>
+                    <h3 id="desc">disc</h3>
+                    <div>
+                        <h1 id="temp" class="temperature">---°C</h1>
+                    </div>
+                </div>
+                <img id="weather-image" src="img/sunrise.png" alt="Weather Image">
+            </div>
+            <div class="other">
+                <div class="other-info">
+                    <img src="img/windy1.png" alt="">
+                    <h4 class="title">Wind</h4>
+                    <h1 id="wind">0mph</h1>
+                </div>
+                <div class="other-info">
+                    <img src="img/humidity.png" alt="">
+                    <h4 class="title">Humidity</h4>
+                    <h1 id="humidity">0%</h1>
+                </div>
+                <div class="other-info">
+                    <img src="img/sunrise.png" alt="">
+                    <h4 class="title">Feels Like</h4>
+                    <h1 id="feel-like">0°C</h1>
+                </div>
+                <div class="other-info">
+                    <img src="img/pressure.png" alt="">
+                    <h4 class="title">Pressure</h4>
+                    <h1 id="pressure">0</h1>
+                </div>
+            </div>
+        </div>
+        <div class="sun">
+            <div class="sunrise sun-time">
+                <div class="detail">
+                    <h3>Sunrise</h3>
+                    <h4 id="sunrise-time">----</h4>
+                </div>
+                <img class="sun-img" src="img/sunrise.png" alt="">
+            </div>
+            <div class="sunset sun-time">
+                <div class="detail">
+                    <h3>Sunset</h3>
+                    <h4 id="sunset-time">----</h4>
+                </div>
+                <img class="sun-img" src="img/sunset.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
