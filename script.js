@@ -9,23 +9,18 @@ function updateTime() {
 }
 setInterval(updateTime, 1000);
 
+const API_KEY = "fc7a9a52d98a8484bda3a9366b28bc86";
+
 const getWeatherData = async (city) => {
-  const url = `https://open-weather13.p.rapidapi.com/city/${city}`;
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "723c855e10msh5c1422ed8a75884p1df621jsne7072c57c629",
-      "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
-    },
-  };
+  const url = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${API_KEY}`;
 
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     const result = await response.json();
-    console.log(result);
+    console.log("result", result);
     return result;
   } catch (error) {
     console.error(error);
@@ -66,14 +61,14 @@ const showWeatherData = (weatherData) => {
   const pressure = (document.getElementById("pressure").innerText =
     weatherData.main.pressure);
 
-  const sunriseTimestamp = weatherData.sys.sunrise * 1000; // Convert seconds to milliseconds
-  const sunsetTimestamp = weatherData.sys.sunset * 1000; // Convert seconds to milliseconds
+  const sunriseTimestamp = weatherData.sys.sunrise * 1000;
+  const sunsetTimestamp = weatherData.sys.sunset * 1000;
 
   const sunriseDate = new Date(sunriseTimestamp);
   const sunsetDate = new Date(sunsetTimestamp);
 
-  const sunriseTimeString = sunriseDate.toLocaleTimeString(); // Convert to local time string
-  const sunsetTimeString = sunsetDate.toLocaleTimeString(); // Convert to local time string
+  const sunriseTimeString = sunriseDate.toLocaleTimeString();
+  const sunsetTimeString = sunsetDate.toLocaleTimeString();
 
   const sunrise = (document.getElementById("sunrise-time").innerText =
     sunriseTimeString);
